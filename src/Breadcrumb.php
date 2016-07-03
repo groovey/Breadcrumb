@@ -1,4 +1,5 @@
 <?php
+
 namespace Groovey\Breadcrumb;
 
 class Breadcrumb
@@ -21,12 +22,12 @@ class Breadcrumb
 
         $this->html .= $twig->render($template, [
                             'title' => $title,
-                            'url'   => $url
+                            'url'   => $url,
                         ]);
-
     }
 
-    public function render(){
+    public function render()
+    {
         return $this->html;
     }
 }

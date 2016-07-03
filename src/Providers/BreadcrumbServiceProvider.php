@@ -15,7 +15,6 @@ class BreadcrumbServiceProvider implements ServiceProviderInterface, BootablePro
         $app['breadcrumb'] = function ($app) {
 
             $path  = $app['breadcrumb.path'];
-
             $cache = (isset($app['breadcrumb.cache'])) ? $app['breadcrumb.cache'] : '';
 
             return new Breadcrumb($path, $cache);
