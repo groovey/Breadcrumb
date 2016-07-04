@@ -1,6 +1,6 @@
 # Breadcrumb
 
-A Silex 2 breadcrumb generator.
+Groovey Breadcrumb Package
 
 ## Installation
 
