@@ -1,6 +1,6 @@
 {
     "name": "groovey/breadcrumb",
-    "description": "A simple breadcrumb generator.",
+    "description": "Groovey Breadcrumb Package.",
     "license": "MIT",
     "keywords": ["groovey", "framework", "simple"],
     "authors": [
