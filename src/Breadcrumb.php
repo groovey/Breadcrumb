@@ -7,10 +7,10 @@ class Breadcrumb
     private $html;
     private $twig;
 
-    public function __construct($path, $cachePath = '')
+    public function __construct($templatesPath, $cachePath = '')
     {
         $cache  = ($cachePath) ? ['cache' => $cachePath] : [];
-        $loader = new \Twig_Loader_Filesystem($path);
+        $loader = new \Twig_Loader_Filesystem($templatesPath);
         $twig   = new \Twig_Environment($loader, $cache);
 
         $this->twig = $twig;
