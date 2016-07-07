@@ -2,28 +2,26 @@
 
 namespace Groovey\Breadcrumb;
 
+use Pimple\Container;
+
 class Breadcrumb
 {
     private $html;
-    private $twig;
+    private $app;
 
-    public function __construct($templatesPath, $cachePath = '')
+    public function __construct(Container $app)
     {
-        $cache  = ($cachePath) ? ['cache' => $cachePath] : [];
-        $loader = new \Twig_Loader_Filesystem($templatesPath);
-        $twig   = new \Twig_Environment($loader, $cache);
-
-        $this->twig = $twig;
+        $this->app = $app;
     }
 
     public function add($title, $url = '', $template = 'default.html')
     {
-        $twig = $this->twig;
+        $app = $this->app;
 
-        $this->html .= $twig->render($template, [
-                            'title' => $title,
-                            'url'   => $url,
-                        ]);
+        $this->html .= $app['twig']->render($template, [
+                                    'title' => $title,
+                                    'url'   => $url,
+                                ]);
     }
 
     public function render()

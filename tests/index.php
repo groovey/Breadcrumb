@@ -1,17 +1,6 @@
-# Breadcrumb
-
-Groovey Breadcrumb Package
-
-## Installation
-
-    $ composer require groovey/breadcrumb
-
-## Usage
-
-```php
 <?php
 
-include_once '/vendor/autoload.php';
+include_once '../vendor/autoload.php';
 
 use Silex\Application;
 use Silex\Provider\TwigServiceProvider;
@@ -22,7 +11,7 @@ $app['debug'] = true;
 
 $app->register(new TwigServiceProvider(), [
     'twig.path' => [
-            __DIR__.'/templates/breadcrumbs',
+            __DIR__.'/../templates/breadcrumbs',
         ],
 ]);
 
@@ -33,5 +22,3 @@ $app['breadcrumb']->add('Category', '/category.php');
 $app['breadcrumb']->add('Edit', '#');
 
 echo $app['breadcrumb']->render();
-
-```

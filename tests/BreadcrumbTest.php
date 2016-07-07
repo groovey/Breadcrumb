@@ -1,6 +1,7 @@
 <?php
 
 use Silex\Application;
+use Silex\Provider\TwigServiceProvider;
 use Groovey\Breadcrumb\Providers\BreadcrumbServiceProvider;
 
 class BreadcrumbTest extends PHPUnit_Framework_TestCase
@@ -10,10 +11,13 @@ class BreadcrumbTest extends PHPUnit_Framework_TestCase
         $app = new Application();
         $app['debug'] = true;
 
-        $app->register(new BreadcrumbServiceProvider(), [
-                'breadcrumb.path'  => __DIR__.'/../templates/breadcrumbs',
-                'breadcrumb.cache' => __DIR__.'/../cache',
+        $app->register(new TwigServiceProvider(), [
+                'twig.path' => [
+                        __DIR__.'/../templates/breadcrumbs',
+                    ],
             ]);
+
+        $app->register(new BreadcrumbServiceProvider());
 
         return $app;
     }
