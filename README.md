@@ -21,10 +21,8 @@ $app = new Application();
 $app['debug'] = true;
 
 $app->register(new TwigServiceProvider(), [
-    'twig.path' => [
-            __DIR__.'/templates/breadcrumbs',
-        ],
-]);
+            'twig.path' => __DIR__.'/../templates'
+        ]);
 
 $app->register(new BreadcrumbServiceProvider());
 

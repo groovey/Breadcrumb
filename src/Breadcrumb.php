@@ -14,9 +14,11 @@ class Breadcrumb
         $this->app = $app;
     }
 
-    public function add($title, $url = '', $template = 'default.html')
+    public function add($title, $url = '', $template = '')
     {
-        $app = $this->app;
+        $app      = $this->app;
+        $template = ($template) ?: 'default.html';
+        $template = 'breadcrumbs/'.$template;
 
         $this->html .= $app['twig']->render($template, [
                                     'title' => $title,
