@@ -6,23 +6,25 @@ use Groovey\Breadcrumb\Providers\BreadcrumbServiceProvider;
 
 class BreadcrumbTest extends PHPUnit_Framework_TestCase
 {
-    private function init()
+    public $app;
+
+    public function setUp()
     {
         $app = new Application();
         $app['debug'] = true;
 
         $app->register(new TwigServiceProvider(), [
-                    'twig.path' => __DIR__.'/../templates'
+                    'twig.path' => __DIR__.'/../templates',
                 ]);
 
         $app->register(new BreadcrumbServiceProvider());
 
-        return $app;
+        $this->app = $app;
     }
 
     public function testBreadcrumb()
     {
-        $app = $this->init();
+        $app = $this->app;
 
         $app['breadcrumb']->add('Home', '/home.php', 'home.html');
         $app['breadcrumb']->add('Category', '/category.php');
