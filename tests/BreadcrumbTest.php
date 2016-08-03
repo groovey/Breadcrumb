@@ -14,7 +14,7 @@ class BreadcrumbTest extends PHPUnit_Framework_TestCase
         $app['debug'] = true;
 
         $app->register(new TwigServiceProvider(), [
-                    'twig.path' => __DIR__.'/../templates',
+                    'twig.path' => __DIR__.'/../resources/templates',
                 ]);
 
         $app->register(new BreadcrumbServiceProvider());
