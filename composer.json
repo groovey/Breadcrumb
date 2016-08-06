@@ -2,7 +2,7 @@
     "name": "groovey/breadcrumb",
     "description": "Groovey Breadcrumb Package.",
     "license": "MIT",
-    "keywords": ["groovey", "framework", "simple"],
+    "keywords": ["silex", "groovey"],
     "authors": [
         {
             "name": "Harold Kim Cantil",
